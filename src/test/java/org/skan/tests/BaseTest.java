@@ -41,6 +41,7 @@ public class BaseTest {
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
 
+        Configuration.browserCapabilities = capabilities;
         Configuration.baseUrl="https://demoqa.com";
         Configuration.holdBrowserOpen=true;
         //Configuration.pageLoadTimeout=150000;
