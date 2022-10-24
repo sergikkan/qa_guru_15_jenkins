@@ -6,6 +6,7 @@ import com.github.javafaker.Faker;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.skan.helpers.Attach;
 import org.skan.pages.RegistrationFormPage;
 import org.skan.utils.Month;
@@ -33,6 +34,12 @@ public class BaseTest {
     @BeforeAll
     static void setUp(){
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+//        capabilities.setCapability("browserName", "chrome");
+//        capabilities.setCapability("browserVersion", "100.0");
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", true);
 
         Configuration.baseUrl="https://demoqa.com";
         Configuration.holdBrowserOpen=true;
