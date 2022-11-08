@@ -33,6 +33,11 @@ public class BaseTest {
     RegistrationFormPage registrationFormPage = new RegistrationFormPage();
     @BeforeAll
     static void setUp(){
+        String browserName = System.getProperty("browser", "chrome");
+        //String browserVersion = System.getProperty("browser_version", "100");
+        String browserSize = System.getProperty("browser_size",  "1600x800");
+        String remoteUrl = System.getProperty("remote", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
+
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -41,8 +46,13 @@ public class BaseTest {
 
         Configuration.browserCapabilities = capabilities;
         Configuration.baseUrl="https://demoqa.com";
-        Configuration.browserSize="1920x1080";
-        Configuration.remote="https://user1:1234@selenoid.autotests.cloud/wd/hub";
+
+        Configuration.browser= browserName;
+        //Configuration.browserVersion= browserVersion;
+        Configuration.browserSize = browserSize;
+        if(remoteUrl!= null ){
+            Configuration.remote = remoteUrl;
+        }
     }
 
     @AfterEach
