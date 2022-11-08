@@ -49,7 +49,7 @@ public class BaseTest {
 
         Configuration.browser= browserName;
         Configuration.browserVersion= browserVersion;
-        //Configuration.browserSize = browserSize;
+        Configuration.browserSize = browserSize;
         if(remoteUrl!= null ){
             Configuration.remote = remoteUrl;
         }
