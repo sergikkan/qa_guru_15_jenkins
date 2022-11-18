@@ -33,8 +33,8 @@ public class BaseTest {
     RegistrationFormPage registrationFormPage = new RegistrationFormPage();
     @BeforeAll
     static void setUp(){
-        String browserName = System.getProperty("browser", "firefox");
-        String browserVersion = System.getProperty("browser_version", "98");
+        String browserName = System.getProperty("browser", "chrome");
+        String browserVersion = System.getProperty("browser_version", "99");
         String browserSize = System.getProperty("browser_size", "1920x1080");
         String remoteUrl = System.getProperty("remote");
 
